@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Pusher = require('pusher');
+const PORT = process.env.PORT || 5000;
 
 const pusherConfig = require('./pusher.json'); // (1)
 const pusherClient = new Pusher(pusherConfig);
@@ -33,6 +34,6 @@ app.post('/users/:name/messages', function(req, res) { // (5)
 	res.sendStatus(204);
 });
 
-app.listen(5000, function() { // (6)
-	console.log('App listening on port 5000');
+app.listen(PORT, function() { // (6)
+	console.log('App listening on port ' + PORT);
 });
